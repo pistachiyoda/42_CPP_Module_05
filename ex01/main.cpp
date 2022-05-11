@@ -1,59 +1,63 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     {
-        std::cout << "////////// Basic Function TEST //////////" << std::endl;
-        Bureaucrat bureaucrat("fmai", 100);
-        std::cout << bureaucrat.getName() << std::endl;
-        std::cout << bureaucrat.getGrade() << std::endl;
-        std::cout << bureaucrat;
-        std::cout << "~~ Decrement grade ~~" << std::endl;
-        bureaucrat.decrementGrade();
-        std::cout << bureaucrat;
-        std::cout << "~~ Increment grade ~~" << std::endl;
-        bureaucrat.incrementGrade();
-        std::cout << bureaucrat;
+        std::cout << "////////// Basic Function TEST 1 //////////" << std::endl;
+        Form form;
+        std::cout << form << std::endl;
     }
     std::cout << std::endl;
     {
-        std::cout << "////////// Exception TEST //////////" << std::endl;
-        std::cout << "~~ TEST with lower grade 1. ~~" << std::endl;
+        std::cout << "////////// Basic Function TEST 2 //////////" << std::endl;
+        Form form("Important Document", 10);
+        std::cout << form << std::endl;
+        std::cout << form.getName() << std::endl;
+        std::cout << form.getRequiredGrade() << std::endl;
+        std::cout << form.getIsSigned() << std::endl;
+
+        Bureaucrat bureaucrat("fmai", 5);
+        std::cout << bureaucrat << std::endl;
+        form.beSigned(bureaucrat);
+        std::cout << form << std::endl;
+    }
+    std::cout << std::endl;
+    {
+        std::cout << "////////// Exception TEST 1 //////////" << std::endl;
         try
         {
-            Bureaucrat bureaucrat("fmai", 151);
+            Form form("Important Document", 0);
         }
         catch(const std::exception& e)
         {
             std::cerr << e.what() << '\n';
         }
-        std::cout << std::endl;
-        std::cout << "~~ TEST with higher grade 1. ~~" << std::endl;
+
+    }
+    {
+        std::cout << "////////// Exception TEST 2 //////////" << std::endl;
         try
         {
-            Bureaucrat bureaucrat("fmai", 0);
+            Form form("Important Document", 151);
         }
         catch(const std::exception& e)
         {
             std::cerr << e.what() << '\n';
         }
-        std::cout << std::endl;
-        std::cout << "~~ TEST with lower grade 2. ~~" << std::endl;
+
+    }
+    std::cout << std::endl;
+    {
+        std::cout << "////////// Exception TEST 3 //////////" << std::endl;
+        Form form("Important Document", 1);
+        std::cout << form << std::endl;
+
+        Bureaucrat bureaucrat("fmai", 5);
+        std::cout << bureaucrat << std::endl;
         try
         {
-            Bureaucrat bureaucrat("fmai", 150);
-            bureaucrat.decrementGrade();
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
-        std::cout << std::endl;
-        std::cout << "~~ TEST with higher grade 2. ~~" << std::endl;
-        try
-        {
-            Bureaucrat bureaucrat("fmai", 1);
-            bureaucrat.incrementGrade();
+            form.beSigned(bureaucrat);
         }
         catch(const std::exception& e)
         {
