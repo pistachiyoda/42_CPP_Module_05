@@ -64,4 +64,17 @@ int main()
             std::cerr << e.what() << '\n';
         }
     }
+    std::cout << std::endl;
+    {
+        std::cout << "////////// Exception TEST 4 //////////" << std::endl;
+        Form form("Important Document", 1);
+        std::cout << form << std::endl;
+        Bureaucrat bureaucrat("fmai", 5);
+        std::cout << bureaucrat << std::endl;
+        bureaucrat.signForm(form);
+        Form weakForm("Unimportant Document", 100);
+        std::cout << weakForm << std::endl;
+        bureaucrat.signForm(weakForm);
+        std::cout << weakForm << std::endl;
+    }
 }

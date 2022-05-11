@@ -8,6 +8,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -26,7 +28,7 @@ public:
     int getRequiredGrade() const;
     bool getIsSigned() const;
     // 参照渡しで受け取らないと、コピこんが走る
-    void beSigned(Bureaucrat &bureaucrat);
+    void beSigned(const Bureaucrat &bureaucrat);
 
     class GradeTooHighException: public std::runtime_error
     {

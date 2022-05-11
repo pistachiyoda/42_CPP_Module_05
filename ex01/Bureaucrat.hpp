@@ -7,6 +7,10 @@
 #define YELLOW "\033[33m" /* Yellow */
 #include <iostream>
 
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -24,6 +28,7 @@ public:
     int getGrade() const;
     void incrementGrade();
     void decrementGrade();
+    void signForm(Form &form) const;
 
     class GradeTooHighException: public std::runtime_error
     {
