@@ -46,6 +46,46 @@ int main()
     }
     std::cout << std::endl;
 
+    // RobotomyRequestForm TEST
+    {
+        // サインできて実行もできる
+        std::cout << "////////// RobotomyRequestForm TEST 1 //////////" << std::endl;
+        Bureaucrat bureaucrat("Ratched", 1);
+        RobotomyRequestForm ppform("McMurphy");
+        bureaucrat.signForm(ppform);
+        std::cout << ppform << std::endl;
+        bureaucrat.executeForm(ppform);
+    }
+    std::cout << std::endl;
+    {
+        // グレードが足りずサインできない
+        std::cout << "////////// RobotomyRequestForm TEST 2 //////////" << std::endl;
+        Bureaucrat bureaucrat("Ratched", 80);
+        RobotomyRequestForm ppform("McMurphy");
+        bureaucrat.signForm(ppform);
+        std::cout << ppform << std::endl;
+    }
+    std::cout << std::endl;
+    {
+        // サインできるがグレードが足りず実行できない
+        std::cout << "////////// RobotomyRequestForm TEST 3 //////////" << std::endl;
+        Bureaucrat bureaucrat("Ratched", 50);
+        RobotomyRequestForm ppform("McMurphy");
+        bureaucrat.signForm(ppform);
+        std::cout << ppform << std::endl;
+        bureaucrat.executeForm(ppform);
+    }
+    std::cout << std::endl;
+    {
+        // サインされていないため実行できない
+        std::cout << "////////// RobotomyRequestForm TEST 4 //////////" << std::endl;
+        Bureaucrat bureaucrat("Ratched", 140);
+        RobotomyRequestForm ppform("McMurphy");
+        std::cout << ppform << std::endl;
+        bureaucrat.executeForm(ppform);
+    }
+    std::cout << std::endl;
+
     // PresidentialPardonForm TEST
     {
         // サインできて実行もできる
