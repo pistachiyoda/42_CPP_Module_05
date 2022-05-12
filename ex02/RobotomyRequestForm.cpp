@@ -32,6 +32,8 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &f
         return *this;
     if (form.getIsSigned())
         setSign();
+    else
+        unsetSign();
     return *this;
 }
 

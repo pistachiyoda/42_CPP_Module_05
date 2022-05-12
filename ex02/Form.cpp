@@ -76,6 +76,11 @@ void Form::setSign()
     this->isSigned_  = true;
 }
 
+void Form::unsetSign()
+{
+    this->isSigned_  = false;
+}
+
 void Form::beSigned(const Bureaucrat &bureaucrat)
 {
     if (requiredGradeForSign_ < bureaucrat.getGrade())

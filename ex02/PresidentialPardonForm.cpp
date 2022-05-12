@@ -32,6 +32,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
         return *this;
     if (form.getIsSigned())
         setSign();
+    else
+        unsetSign();
     return *this;
 }
 

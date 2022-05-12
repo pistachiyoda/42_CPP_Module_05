@@ -4,6 +4,11 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q forms");
+// }
+
 int main()
 {
     // ShrubberyCreationForm TEST

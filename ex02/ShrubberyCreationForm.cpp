@@ -32,6 +32,8 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
         return *this;
     if (form.getIsSigned())
         setSign();
+    else
+        unsetSign();
     return *this;
 }
 

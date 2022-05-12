@@ -32,7 +32,7 @@ public:
     int getRequiredGradeForExec() const;
     bool getIsSigned() const;
     void setSign();
-    // 参照渡しで受け取らないと、コピこんが走る
+    void unsetSign();
     void beSigned(const Bureaucrat &bureaucrat);
     virtual void execute(const Bureaucrat &executor) const = 0;
 
