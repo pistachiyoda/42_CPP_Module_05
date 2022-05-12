@@ -51,6 +51,11 @@ std::string Form::getName() const
     return name_;
 }
 
+std::string Form::getTarget() const
+{
+    return target_;
+}
+
 int Form::getRequiredGradeForSign() const
 {
     return requiredGradeForSign_;
@@ -64,6 +69,11 @@ int Form::getRequiredGradeForExec() const
 bool Form::getIsSigned() const
 {
     return isSigned_;
+}
+
+void Form::setSign()
+{
+    this->isSigned_  = true;
 }
 
 void Form::beSigned(const Bureaucrat &bureaucrat)

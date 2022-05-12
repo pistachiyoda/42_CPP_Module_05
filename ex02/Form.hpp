@@ -12,7 +12,7 @@ class Bureaucrat;
 
 class Form
 {
-protected:
+private:
     static const int highestGrade_ = 1;
     static const int lowestGrade_ = 150;
     const std::string name_;
@@ -27,9 +27,11 @@ public:
     Form(const Form &form);
     Form &operator=(const Form &form);
     std::string getName() const;
+    std::string getTarget() const;
     int getRequiredGradeForSign() const;
     int getRequiredGradeForExec() const;
     bool getIsSigned() const;
+    void setSign();
     // 参照渡しで受け取らないと、コピこんが走る
     void beSigned(const Bureaucrat &bureaucrat);
     virtual void execute(const Bureaucrat &executor) const = 0;
