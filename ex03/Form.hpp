@@ -23,7 +23,7 @@ private:
 public:
     Form();
     Form(const std::string &name, const int &gradeForSign, const int &gradeForExec, const std::string &target);
-    ~Form();
+    virtual ~Form();
     Form(const Form &form);
     Form &operator=(const Form &form);
     std::string getName() const;
