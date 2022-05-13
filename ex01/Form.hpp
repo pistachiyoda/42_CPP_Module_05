@@ -17,15 +17,17 @@ private:
     static const int lowestGrade_ = 150;
     const std::string name_;
     bool isSigned_;
-    const int requiredGrade_;
+    const int requiredGradeForSign_;
+    const int requiredGradeForExec_;
 public:
     Form();
-    Form(const std::string &name, const int &grade);
+    Form(const std::string &name, const int &gradeForSign, const int &gradeForExec);
     ~Form();
     Form(const Form &form);
     Form &operator=(const Form &form);
     std::string getName() const;
-    int getRequiredGrade() const;
+    int getRequiredGradeForSign() const;
+    int getRequiredGradeForExec() const;
     bool getIsSigned() const;
     // 参照渡しで受け取らないと、コピこんが走る
     void beSigned(const Bureaucrat &bureaucrat);
