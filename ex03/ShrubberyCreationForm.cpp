@@ -64,7 +64,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
         "https://asciiart.website/index.php?art=plants/trees\n";
 
     std::ofstream ofs;
-    ofs.open(getTarget() + "_shrubbery");
+    ofs.open((getTarget() + "_shrubbery").c_str());
     if (!ofs.is_open())
         throw std::runtime_error("Failed to open the file.");
     ofs << content;

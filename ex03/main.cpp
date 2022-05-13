@@ -7,7 +7,7 @@
 
 __attribute__((destructor))
 static void destructor() {
-    system("leaks -q intern");
+    // system("leaks -q intern");
 }
 
 int main()
@@ -44,5 +44,9 @@ int main()
         Intern someRandomIntern;
         Form* rrf;
         rrf = someRandomIntern.makeForm("non exist request", "Bender");
+        if (rrf == NULL)
+            std::cout << "OK" << std::endl;
+        else
+            std::cout << "NG" << std::endl;
     }
 }
